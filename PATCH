@@ -1,0 +1,84 @@
+PATCHING FROM 1.0 to 1.1
+
+Simply unzip the new release into your installation directory. Next, run the 
+patch1011.php file from your web browser (it is included in the 1.1 release in 
+the root directory of your install). After checking to make sure the patch has 
+not already been run, it will update your global settings in your database to 
+include the new variables and make alterations to your tables to enable the new
+Bayesian filtering system. It will also attempt to gather as much keyword data
+as it can to attempt to start the Bayesian training. Note that none of your 
+articles will be lost, however all keyword training from the old system will be
+erased and LeafRSS will have to be trained again.
+
+PATCHING FROM 0.9.5 to 1.0
+
+As of version 1.0, we have the installer create the config.php file from
+scratch on install, so it is unnecessary to back up your config.php file. Simply
+unzip the new release into your installation directory. Next, run the 
+patch09510.php file from your web browser (it is included in the 1.0 release in 
+the root directory of your install). After checking to make sure the patch has 
+not already been run, it will update your config.php and the global settings in 
+your database to include the new variables.
+
+PATCHING FROM 0.9 to 0.9.5
+
+First, make a backup copy of your config.inc file, as there have been changes to
+the config file in this release. Then, simply unzip the new release into 
+your installation directory. Next, update the config.php included in this
+release to contain the information from your original configuration file. NOTE
+THAT THE CONFIGURATION FILENAME HAS CHANGED. This was for security reasons. It
+is highly recommended that you delete the config.inc file from your server after
+this patch is installed. Next, run the patch09095.php file from
+your web browser (it is included in the 0.9.5 release in the root directory of 
+your install). After checking to make sure the patch has not already been run,
+it will update the global settings in your database to include the new 
+variables.
+
+PATCHING FROM 0.8 to 0.9
+
+First, make a backup copy of your confic.inc file, as there have been changes to
+the config.inc file in this release. Then, simply unzip the new release into 
+your installation directory. Next, update the config.inc included in this
+release to contain the information from your original configuration file. Please
+make sure to set the smarty directories. Next, run the patch0809.php file from
+your web browser (it is included in the 0.9 release in the root directory of 
+your install). After checking to make sure the patch has not already been run,
+it will update the global settings in your database to include the new 
+variables.
+
+PATCHING FROM 0.7 to 0.8
+
+Simply unzip the new release into your installation directory, excluding the 
+config.inc file. Next, run the patch0708.php file from your web browser (it
+is included in the 0.8 release in the root directory of your install). After
+checking to make sure the patch has not already been run, it will update the
+global settings in your database to include the new variables, and make some
+alterations to the table structure of the feeddata and rss feeds table.
+
+PATCHING FROM 0.6 to 0.7
+
+Simply unzip the new release into your installation directory, excluding the 
+config.inc file. Next, run the patch0607.php file from your web browser (it
+is included in the 0.7 release in the root directory of your install). After
+checking to make sure the patch has not already been run, it will update the
+global settings in your database to include the new variables, and make some
+alterations to the table structure of the feeddata table.
+
+This patch will set the default authentication method to session-based
+authentication. This can be changed via the global settings editor to either
+session-based (via $_SESSION) or browser-based (via WWW-Authenticate). The
+session-based has been chosen as default as there have been issues with browser-
+based authentication on some server configurations.
+
+PATCHING FROM 0.5 to 0.6
+
+Simply unzip the new release into your installation directory, excluding the 
+config.inc file. Next, run the patch0506.php file from your web browser (it
+is included in the 0.6 release in the root directory of your install). After
+checking to make sure the patch has not already been run, it will update the
+global settings in your database to include the new variables, and alter the
+table structure of the feeddata table.
+
+This will set your maximum displayed articles to ten. If you wish to change the
+amount of articles displayed, you can change the number in the global settings
+editor.

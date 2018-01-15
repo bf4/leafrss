@@ -1,0 +1,104 @@
+NAME
+
+	LeafRSS - a learning filtered RSS aggregator
+	
+DESCRIPTION
+
+	LeafRSS is a learning filtered RSS aggregator. It is designed to filter out
+	unwanted aricles from several feeds and display them through a web interface.
+	It also caches the feeds in a user-defined database. Currently only MySQL is
+	supported.
+	
+	LeafRSS has been tested using PHP 4.x, but should work without incident in PHP
+	5, as an effort has been made to make this as non-version-specific as 
+	possible.
+	
+	LeafRSS makes extensive use of LastRSS for feed parsing. The latest copy of
+	LastRSS can be found at http://lastrss.oslab.net/. They also provide
+	documentation for LastRSS. LeafRSS currently uses LastRSS version 0.9.1, and
+	has not been tested with any other versions. A copy of LastRSS v0.9.1 is
+	included with LeafRSS.
+	
+	As of LeafRSS 1.1, we have included a version of PHPlot for the Bayes
+	statistics graphs. The latest version of PHPlot can be found at 
+	http://sourceforge.net/projects/phplot/. They also provide documentation for
+	PHPlot. LeafRSS currently uses PHPlot version 5.0.5, and has not been tested
+	with any other versions.
+
+
+GETTING STARTED
+	
+	Extract the downloaded file into the desired web directory. In order for 
+	LeafRSS to run properly, the user account that runs your web server (i.e. 
+	www-data) must have write access to this directory. You must also either have 
+	an available database already created for the install script to create tables 
+	in, or create a new database manually. LeafRSS will not create databases on 
+	its own to prevent permission problems on public servers. Be sure that 
+	whichever database user you are using for LeafRSS has SELECT, INSERT, UPDATE, 
+	CREATE, and ALTER permissions for the selected database or the install script 
+	will not run correctly. Once all this is set, run install.php in the root of
+	the install folder. This will create the configuration file, the required 
+	tables in the database, and set some default values for some of the global 
+	variables stored in the database.
+
+USING CRON FOR UPDATES
+
+	As of version 0.4, you can now either use an internal update timer or cron (or
+	similar scheduler) to update the feeds. This option is selectable at install,
+	and can be changed via the global settings editor. NOTE THAT TURNING ON CRON
+	IN THE SETTINGS WILL NOT CREATE A CRON JOB FOR YOU, IT WILL SIMPLY DISABLE THE
+	INTERNAL TIMER! To create a cron job, add something like the following line to
+	your crontab:
+	
+	@hourly php4 /path/to/leafrss/update.php
+	
+	For more information on cron and crontab, check the man pages for cron.
+
+AUTHENTICATION ISSUES
+
+	As of 0.7 you now have the option to select the method for authenticating to 
+	access the administration area. The system defaults to session-based login, as
+	there were some issues discovered using the 0.6 and earlier method of browser-
+	based authentication (via WWW-Authenticate headers). You can switch between
+	the two methods now, but be warned that changing this setting may require you 
+	to log in again.
+
+TIME ZONE SETTINGS
+
+	As of 0.8 there is the option in the global settings to set your time
+	difference from GMT, which will alter the publish date shown on the front end 
+	to match your time zone. It defaults to 0 (which is GMT), and can be set from
+	-12 to 12 (i.e. PST is GMT -7, so set to -7 if in Pacific Standard Time)
+	
+SMARTY TEMPLATES
+
+	As of 0.9 we have integrated Smarty template capabilities into LeafRSS to
+	allow greater ease of layout customization without the worry of breaking the
+	functionality of the filter. We have included a copy of Smarty 2.6.16 with
+	this release, and the defaults within the config file point to the included
+	copy of Smarty. If you already have Smarty installed on your server, then
+	simply update the Smarty variables in your config.inc file to point to your
+	installed copy. Note that we have not tested LeafRSS with versions earlier
+	than 2.6.16, so we cannot guarantee that your copy of Smarty will be fully
+	compatible if you are using an earlier version.
+	
+	LeafRSS will attempt to create the Smarty compile directory specified in the
+	config.inc file. If your server does not give the web user the permissions
+	required to create the smarty compile directory, the script will not run. If
+	this occurs, you will need to create the directory manually and give the user
+	that the web server runs under write permissions to that directory.
+	
+	For more information on Smarty, please visit http://smarty.php.net/. Special
+	thanks to all the folks at Smarty for their hard work!
+	
+PATCHING AN OLD VERSION
+
+	Starting with version 0.6, there will be a patch file available to upgrade
+	from the previous version. Please read the PATCH file for details.
+	
+COPYRIGHT:
+	Copyright(c) 2008 Grant Electronics. All rights reserved.
+	This software is released under the GNU General Public License.
+	A copy of the GNU General Public License can be found in the LICENSE file,
+	or at http://www.gnu.org/copyleft/gpl.html
+	
